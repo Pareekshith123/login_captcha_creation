@@ -1,0 +1,35 @@
+
+  <div class="login-container">
+     <div class="log">
+    <img class="img" src="./assets/logi.png" alt="">
+    <h1 class="login">
+        <span>L</span><span>o</span><span>g</span><span>i</span><span>n</span>
+      </h1>
+      </div>
+    <div class="login-form">
+      <label class="username">Username:</label>
+      <input type="text" id="username" class="passwordinput" name="username"  placeholder="Enter your username" required>
+      
+      <label class="password">Password:</label>
+      <input type="password" id="password" class="passwordinput" placeholder="Enter your password" required>
+
+      <!-- Captcha Component -->
+      <div class="captcha-container">
+        <p class="captcha-question">{{ captcha.question }}</p>
+        <input class="captcha-input" type="text" [(ngModel)]="userAnswer" placeholder="Enter the characters" required>
+      
+        <button type="submit" class="captcha-button" (click)="checkAnswer({userAnswer})">Submit Captcha</button>
+        <br>
+        <p class="captcha-message" *ngIf="resultMessage" [ngClass]="{'red-message': !captchaPassed(), 'green-message': captchaPassed()}">
+            <span>
+              {{ resultMessage }}
+            </span>
+          </p>
+      
+      <br>
+      <br>
+      </div>
+      
+      <button type="submit" class="submit-button">Login</button>
+    </div>
+  </div>
